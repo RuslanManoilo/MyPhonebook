@@ -10,10 +10,15 @@ const setAuthHeader = token => {
 
 export const register = createAsyncThunk("auth/register",
     async (credentials, thunkAPI) => {
-    try {
-        const responce = await axios.post("/users/signup", credentials);
-        return responce.data;
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.message)
+        try {
+            console.log(credentials);
+            const responce = await axios.post('/users/signup', credentials);
+            console.log(responce);
+
+            setAuthHeader(responce.data.token);
+            return responce.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message)
+        }
     }
-})
+);

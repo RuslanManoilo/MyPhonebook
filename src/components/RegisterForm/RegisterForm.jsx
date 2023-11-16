@@ -60,12 +60,12 @@ export const RegisterForm = () => {
 
 const formSchema = Yup.object().shape({
     name: Yup.string()
-        .min(2, 'Too Short!')
+        .min(7, 'Too Short!')
         .required('This field is required!'),
     email: Yup.string()
-        .min(4, 'Too Short!')
+        .email()
         .required('This field is required!'),
     password: Yup.string()
-        .min(4, 'Too Short!')
+        .min(8, 'Too Short!')
         .required('This field is required!'),
 });
