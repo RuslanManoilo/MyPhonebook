@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { currentFilter } from "redux/filterSlice";
+import { currentFilter } from "redux/filter/slice";
 import { FilterInput, FilterLabel } from "components/Filter/Filter.styled";
 
 

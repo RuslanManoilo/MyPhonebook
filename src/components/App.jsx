@@ -1,38 +1,24 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "redux/operations";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Layout } from "./Layout";
 
-import { ContactForm } from "./ContactForm/ContactForm";
-import { ContactList } from "./ContactList/ContactList";
-import { Filter } from "./Filter/Filter";
-import { Container, SecondTitle, Title } from "./GlobalStyle";
-
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { selectError, selectIsLoading } from "redux/selectors";
-import { Loader } from "./Loader/Loader";
+import { lazy } from "react";
+const Home = lazy(() => import("../pages/Home"));
+const Register = lazy(() => import("../pages/Register"));
+const Login = lazy(() => import("../pages/Login"));
+const Contacts = lazy(() => import("../pages/Contacts"));
 
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <Container>
-      <Title>Phonebook</Title>
-      <ContactForm />
-      <ToastContainer />
+    <Routes>
+      <Route path="/" element={<Layout />} >
+        <Route index element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contacts" element={<Contacts />} />
 
-      <SecondTitle>Contacts</SecondTitle>
-      <Filter />
-      <ContactList />
-
-      {isLoading && !error && <Loader />}
-    </Container>
+        <Route path="*" element={<Navigate to={"/"} replace />} />
+      </Route>
+    </Routes>
   );
 };
