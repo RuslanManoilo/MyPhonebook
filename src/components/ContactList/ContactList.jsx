@@ -15,7 +15,7 @@ export const ContactList = () => {
       {visibleContacts.map(visibleContact => (
         <ListItem key={visibleContact.id}>
           <ItemText>
-            {visibleContact.name}: {visibleContact.phone}
+            {visibleContact.name}: {visibleContact.number}
           </ItemText>
               
           <ItemBtn onClick={() => (dispatch(deleteContact(visibleContact.id)))}>

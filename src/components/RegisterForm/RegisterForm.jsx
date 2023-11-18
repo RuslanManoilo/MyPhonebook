@@ -21,7 +21,6 @@ export const RegisterForm = () => {
             validationSchema={formSchema}
 
             onSubmit={(values, actions) => {
-                console.log(values);
                 dispatch(register(values));
                 actions.resetForm();
             }}
