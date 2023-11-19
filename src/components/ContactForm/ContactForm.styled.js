@@ -12,7 +12,7 @@ export const FormWrapper = styled(Form)`
 
 export const FormLabel = styled.label`
     font-family: 'Courier New', monospace;
-    font-size: 20px;
+    font-size: ${p => p.theme.spacing(5)};
     margin-bottom: 5px;
     color: #a93a3a;
 `;

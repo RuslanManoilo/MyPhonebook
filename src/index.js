@@ -12,7 +12,7 @@ import { GlobalStyle } from 'styles/GlobalStyle';
 
 const theme = {
   colors: {
-    white: "#ffffff",
+    white: "#fff",
     error: "#ff6b6b",
   },
 

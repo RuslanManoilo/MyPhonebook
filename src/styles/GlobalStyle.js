@@ -4,22 +4,25 @@ import "modern-normalize";
 
 
 export const Container = styled.div`
-    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
     text-align: center;
     padding: 20px;
     margin: 0 auto;
     margin-top: 50px;
     border: 2px solid #ccc;
     border-radius: 10px;
-    background-color: #f0f0f0;
+    background-color: inherit;
 `;
 
 export const Title = styled.h1`
-    color: #a93a3a;
+    color: #1976d2;
 `;
 
 export const SecondTitle = styled.h2`
-    color: #a93a3a;
+    color: #1976d2;
 `;
 
 export const HomeText = styled.div`

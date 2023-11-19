@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "redux/contacts/operations";
 import { selectContacts } from "redux/contacts/selectors";
 
+import { Button } from "@mui/material";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
-import { ErrorNotification, FormBtn, FormInput, FormLabel, FormWrapper } from "components/ContactForm/ContactForm.styled"; 
+import { ErrorNotification } from "components/ContactForm/ContactForm.styled"; 
+import { FormBox, StyledLabel, TextField } from "components/LoginForm/LoginForm.styled";
 
 
 export const ContactForm = () => {
@@ -25,16 +27,18 @@ export const ContactForm = () => {
 
             onSubmit={(values, actions) => {
                 contacts.some(contact => contact.name.toLowerCase() === values.name.toLowerCase()) ?
-                    toast.error(`${values.name} is already in contacts.`)
+                    toast.error(`${values.name} is already in contacts.`, {
+                        position: toast.POSITION.TOP_CENTER
+                    })
                     :
                     dispatch(addContact(values));
                 
                 actions.resetForm();
             }}
         >
-            <FormWrapper>
-                <FormLabel htmlFor="contactFormikInput">Name</FormLabel>
-                <FormInput
+            <FormBox>
+                <StyledLabel htmlFor="contactFormikInput">Name</StyledLabel>
+                <TextField
                     name="name"
                     id="contactFormikInput"
                     type="text"
@@ -42,16 +46,24 @@ export const ContactForm = () => {
                 />
                 <ErrorNotification name="name" component="div" />
 
-                <FormLabel htmlFor="contactFormikPhone">Phone number</FormLabel>
-                <FormInput
+                <StyledLabel htmlFor="contactFormikPhone">Phone number</StyledLabel>
+                <TextField
                     name="number"
                     id="contactFormikPhone"
                     type="tel"
                 />
                 <ErrorNotification name="number" component="div" />
 
-                <FormBtn type="submit">Add contact</FormBtn>
-            </FormWrapper>
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2, boxShadow: 3 }}
+                >
+                    Add contact
+                </Button>
+
+            </FormBox>
         </Formik>
     );
 };

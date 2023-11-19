@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectVisibleContacts } from "redux/contacts/selectors";
 import { deleteContact } from "redux/contacts/operations";
-import { ItemBtn, ItemText, ListItem } from "components/ContactList/ContactList.styled";
+import { ItemText, ListItem } from "components/ContactList/ContactList.styled";
+import { Avatar, IconButton } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 export const ContactList = () => {
@@ -14,13 +16,14 @@ export const ContactList = () => {
     <ul>
       {visibleContacts.map(visibleContact => (
         <ListItem key={visibleContact.id}>
+          <Avatar alt={visibleContact.name} src="/static/images/avatar/2.jpg" />
           <ItemText>
             {visibleContact.name}: {visibleContact.number}
           </ItemText>
               
-          <ItemBtn onClick={() => (dispatch(deleteContact(visibleContact.id)))}>
-            Delete
-          </ItemBtn>
+          <IconButton onClick={() => (dispatch(deleteContact(visibleContact.id)))} aria-label="delete">
+            <DeleteIcon />
+          </IconButton>
 
         </ListItem>
       ))}
