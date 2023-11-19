@@ -1,9 +1,16 @@
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { Button } from "@mui/material";
+
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/operations";
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { ErrorNotification, FormBtn, FormInput, FormLabel, FormWrapper } from "components/ContactForm/ContactForm.styled"; 
+import { ErrorNotification } from "components/ContactForm/ContactForm.styled"; 
+import { FormBox, HelpLink, StyledLabel, TextField } from 'components/LoginForm/LoginForm.styled';
 
 
 export const RegisterForm = () => {
@@ -11,49 +18,93 @@ export const RegisterForm = () => {
     const dispatch = useDispatch();
 
     return (
-        <Formik
-            initialValues={{
-                name: '',
-                email: '',
-                password: '',
-            }}
+        <>
+            <Box
+                sx={{
+                    my: 8,
+                    mx: 4,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}
+            >
+                <Avatar
+                    sx={{
+                        m: 1,
+                        bgcolor: 'primary.main',
+                        boxShadow: 3,
+                        color: '#00000031',
+                    }}
+                >
+                    <LockOutlinedIcon />
+                </Avatar>
+                <Typography
+                    component="h1"
+                    variant="h5"
+                    sx={{
+                        color: '#000',
+                        textShadow: '-1px -1px 1px #ffffff31, 1px 1px 1px #00000031',
+                    }}
+                >
+                    SignUp
+                </Typography>
 
-            validationSchema={formSchema}
+                <Formik
+                    initialValues={{
+                        name: '',
+                        email: '',
+                        password: '',
+                    }}
 
-            onSubmit={(values, actions) => {
-                dispatch(register(values));
-                actions.resetForm();
-            }}
-        >
-            <FormWrapper>
-                <FormLabel htmlFor="registerUserName">Username</FormLabel>
-                <FormInput
-                    name="name"
-                    id="registerUserName"
-                    type="text"
+                    validationSchema={formSchema}
+
+                    onSubmit={(values, actions) => {
+                        dispatch(register(values));
+                        actions.resetForm();
+                    }}
+                >
+                    <FormBox>
+                        <StyledLabel htmlFor="registerUserName">Username</StyledLabel>
+                        <TextField
+                            name="name"
+                            id="registerUserName"
+                            type="text"
                     
-                />
-                <ErrorNotification name="name" component="div" />
+                        />
+                        <ErrorNotification name="name" component="div" />
 
-                <FormLabel htmlFor="registerEmail">Email</FormLabel>
-                <FormInput
-                    name="email"
-                    id="registerEmail"
-                    type="email"
-                />
-                <ErrorNotification name="email" component="div" />
+                        <StyledLabel htmlFor="registerEmail">Email</StyledLabel>
+                        <TextField
+                            name="email"
+                            id="registerEmail"
+                            type="email"
+                        />
+                        <ErrorNotification name="email" component="div" />
 
-                <FormLabel htmlFor="registerPassword">Password</FormLabel>
-                <FormInput
-                    name="password"
-                    id="registerPassword"
-                    type="password"
-                />
-                <ErrorNotification name="password" component="div" />
+                        <StyledLabel htmlFor="registerPassword">Password</StyledLabel>
+                        <TextField
+                            name="password"
+                            id="registerPassword"
+                            type="password"
+                        />
+                        <ErrorNotification name="password" component="div" />
 
-                <FormBtn type="submit">Register</FormBtn>
-            </FormWrapper>
-        </Formik>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2, boxShadow: 3 }}
+                        >
+                            Sign In
+                        </Button>
+                    </FormBox>
+                </Formik>
+
+                <HelpLink to={`/login`} variant="body2">
+                    {"Don't have an account? Sign In"}
+                </HelpLink>
+            </Box>
+        </>
     );
 };
 

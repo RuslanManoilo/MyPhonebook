@@ -22,6 +22,18 @@ export const SecondTitle = styled.h2`
     color: #a93a3a;
 `;
 
+export const HomeText = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 36px;
+    gap: 16px;
+`;
+
+export const HomeInfo = styled.p`
+    width: 86%;
+`
+
 export const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;

@@ -1,16 +1,11 @@
-import { AuthNav } from "components/AuthNav/AuthNav";
+import Container from '@mui/material/Container';
 import { Navigation } from "components/Navigation/Navigation"
-import { UserMenu } from "components/UserMenu/UserMenu";
-import { useAuth } from "hooks/useAuth";
+
 
 export const NavBar = () => {
-
-    const { isLoggedIn } = useAuth();
-
     return (
-        <header>
+        <Container maxWidth="xl">
             <Navigation />
-            {isLoggedIn ? <UserMenu /> : <AuthNav />}
-        </header>
+        </Container>
     );
 };

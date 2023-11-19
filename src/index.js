@@ -6,7 +6,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { App } from 'components/App';
-import { GlobalStyle } from 'components/GlobalStyle';
+import { GlobalStyle } from 'styles/GlobalStyle';
+
 
 
 const theme = {

@@ -7,7 +7,7 @@ import { ContactForm } from "components/ContactForm/ContactForm";
 import { ContactList } from "components/ContactList/ContactList";
 import { Filter } from "components/Filter/Filter";
 import { Loader } from "components/Loader/Loader";
-import { Container, SecondTitle, Title } from "components/GlobalStyle";
+import { Container, SecondTitle, Title } from "styles/GlobalStyle";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
