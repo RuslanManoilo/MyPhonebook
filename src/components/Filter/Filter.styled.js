@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 export const FilterLabel = styled.label`
     font-family: 'Courier New', monospace;
-    color: #1976d2;
+    color: ${p => p.theme.colors.blue};
 `;
 
 export const FilterInput = styled.input`
     width: 50%;
     height: 8px;
     border: 1px solid rgba(0, 0, 0, 0.23);
-    border-radius: 4px;
+    border-radius: ${p => p.theme.radii.sm};
     font: inherit;
     letter-spacing: inherit;
     color: currentcolor;

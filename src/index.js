@@ -13,12 +13,14 @@ import { GlobalStyle } from 'styles/GlobalStyle';
 const theme = {
   colors: {
     white: "#fff",
+    blue: '#1976d2',
     error: "#ff6b6b",
   },
 
   radii: {
     sm: '4px',
     md: '8px',
+    lg: '12px',
   },
 
   spacing: value => `${value * 4}px`,

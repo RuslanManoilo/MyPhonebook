@@ -14,14 +14,14 @@ export const NavMenu = styled(NavLink)`
 
 export const NavBtn = styled(NavLink)`
   padding: 8px 8px;
-  border-radius: 8px;
+  border-radius: ${p => p.theme.radii.md};
   text-decoration: none; 
-  color: #fff;
+  color: ${p => p.theme.colors.white};
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &.active {
-      border: 2px solid #fff;
-      border-radius: 8px;
+      border: 2px solid ${p => p.theme.colors.white};
+      border-radius: ${p => p.theme.radii.md};
     };
 
     &:hover,

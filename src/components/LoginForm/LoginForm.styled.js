@@ -19,14 +19,14 @@ export const StyledLabel = styled.label`
     font-size: 1.5rem;
     line-height: 1.334;
     letter-spacing: 0em;
-    color: #1976d2;
+    color: ${p => p.theme.colors.blue};
     text-shadow: rgba(255, 255, 255, 0.192) -1px -1px 1px, rgba(0, 0, 0, 0.192) 1px 1px 1px;
 `;
 
 export const TextField = styled(Field)`
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.23);
-    border-radius: 4px;
+    border-radius: ${p => p.theme.radii.sm};
     font: inherit;
     letter-spacing: inherit;
     color: currentcolor;

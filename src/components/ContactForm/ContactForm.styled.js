@@ -22,16 +22,16 @@ export const FormInput = styled(Field)`
     padding: 5px;
     margin-bottom: 8px;
     border: 1px solid #a93a3a;
-    border-radius: 5px;
+    border-radius: ${p => p.theme.radii.sm};
 `;
 
 export const FormBtn = styled.button`
     font-family: 'Courier New', monospace;
     padding: 5px 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: ${p => p.theme.radii.sm};
     cursor: pointer;
-    color: #fff;
+    color: ${p => p.theme.colors.white};
     background-color: #a93a3a;
 `;
 

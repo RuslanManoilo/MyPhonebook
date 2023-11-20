@@ -13,16 +13,16 @@ export const Container = styled.div`
     margin: 0 auto;
     margin-top: 50px;
     border: 2px solid #ccc;
-    border-radius: 10px;
+    border-radius: ${p => p.theme.radii.lg};
     background-color: inherit;
 `;
 
 export const Title = styled.h1`
-    color: #1976d2;
+    color: ${p => p.theme.colors.blue};
 `;
 
 export const SecondTitle = styled.h2`
-    color: #1976d2;
+    color: ${p => p.theme.colors.blue};
 `;
 
 export const HomeText = styled.div`
@@ -30,7 +30,7 @@ export const HomeText = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 36px;
-    gap: 16px;
+    gap: ${p => p.theme.spacing(4)};
 `;
 
 export const HomeInfo = styled.p`
