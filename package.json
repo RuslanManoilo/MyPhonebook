@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-08-phonebook-login",
+  "name": "MyPhonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ruslanmanoilo.github.io/goit-react-hw-08-phonebook-login/",
+  "homepage": "https://ruslanmanoilo.github.io/MyPhonebook/",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
